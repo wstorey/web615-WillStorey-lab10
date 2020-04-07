@@ -35,7 +35,7 @@ class User < ApplicationRecord
   POSSIBLE_ROLES = ['Admin', 'Non-Admin']
 
   def is_admin?
-    if self.role == 'Admin'
+    if self.roles == 'Admin'
       true
     else
       false
