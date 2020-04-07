@@ -38,7 +38,7 @@ class User < ApplicationRecord
     if self.role == 'Admin'
       true
     else
-      false 
+      false
     end
   end
 

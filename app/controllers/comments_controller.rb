@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
+    authorize Comment
     @comments = Comment.paginate(page: params[:page], per_page: params[:per_page] ||= 30).order(created_at: :desc)
   end
 
@@ -28,6 +29,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    authorize Comment
     @comment = Comment.new
   end
 
@@ -38,6 +40,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    authorize @comment
 
     respond_to do |format|
       if @comment.save

@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    authorize Article
     @articles = Article.paginate(page: params[:page], per_page: params[:per_page] ||= 30).order(created_at: :desc)
   end
 
@@ -28,6 +29,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    authorize Article
     @article = Article.new
   end
 
@@ -38,6 +40,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    authorize @article
 
     respond_to do |format|
       if @article.save
