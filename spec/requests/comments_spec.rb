@@ -56,7 +56,7 @@ RSpec.describe 'Comments', type: :request do
         click_link 'Comments'
         expect(current_path).to eq(comments_path)
 
-        expect(page).to have_content(@comment.id)
+        expect(page).to have_content(@comment.message)
 
         click_link 'Show'
         expect(current_path).to eq(comment_path(@comment))
@@ -64,7 +64,7 @@ RSpec.describe 'Comments', type: :request do
         expect(page).to have_content(@comment.id)
         expect(page).to have_content(@comment.message)
         # expect(page).to have_content(@comment.article_id)
-        expect(page).to have_content(@comment.user_id)
+        # expect(page).to have_content(@comment.user_id)
         # save_and_open_page
       end
     end
@@ -134,7 +134,7 @@ RSpec.describe 'Comments', type: :request do
 
         expect(page).to have_content(@comment.message)
         #expect(page).to have_content(@comment.article_id)
-        expect(page).to have_content(@comment.user_id)
+        # expect(page).to have_content(@comment.user_id)
 
         @new_user = FactoryBot.create(:user)
 
@@ -170,7 +170,7 @@ RSpec.describe 'Comments', type: :request do
         # expect(page).to have_content(@comment.id)
         expect(page).to have_content(@comment.message)
         #expect(page).to have_content(@comment.article_id)
-        expect(page).to have_content(@comment.user_id)
+        # expect(page).to have_content(@comment.user_id)
 
         click_link 'Edit'
         expect(current_path).to eq(edit_comment_path(@comment))
