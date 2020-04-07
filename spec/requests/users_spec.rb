@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   before(:each) do
-    @user = FactoryBot.create(:user) # Create the user
+    @user = FactoryBot.create(:admin) # Create the user
 
     # Set up the basic premise of the test by making sure that you have to log in
     visit root_path

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Comments', type: :request do
   before(:each) do
-    @user = FactoryBot.create(:user) # Create the user
+    @user = FactoryBot.create(:admin) # Create the user
 
     # Set up the basic premise of the test by making sure that you have to log in
     visit root_path
@@ -153,7 +153,7 @@ RSpec.describe 'Comments', type: :request do
         # save_and_open_page
       end
     end
-
+    
     describe 'invalid: ' do
       it 'should not update an comment with invalid attributes' do
         friendlyComment = FactoryBot.create(:comment)
