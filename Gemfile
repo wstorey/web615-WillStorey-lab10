@@ -57,6 +57,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  gem 'launchy'
 end
 
 group :development do
